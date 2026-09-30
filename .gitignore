@@ -1,0 +1,23 @@
+node_modules/
+.env
+data/*
+!data/.gitkeep
+.DS_Store
+
+.claude/context-map.json
+.claude/context-map.md
+web/.next/
+web/node_modules/
+web/next-env.d.ts
+web/tsconfig.tsbuildinfo
+demo/.next/
+demo/node_modules/
+demo/next-env.d.ts
+demo/tsconfig.tsbuildinfo
+demo/data/
+
+# Local-only: Claude Code settings, generated planning docs, and demo recording assets
+.claude/
+*-plan.md
+demo/recording/*.mp4
+demo/recording/*.pdf

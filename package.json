@@ -1,0 +1,39 @@
+{
+  "name": "reddit-research",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "db:init": "tsx --env-file-if-exists=.env src/db/init.ts",
+    "collect": "tsx --env-file-if-exists=.env src/ingest/collect.ts",
+    "sources": "tsx --env-file-if-exists=.env src/sources/cli.ts",
+    "status": "tsx --env-file-if-exists=.env src/status.ts",
+    "test": "tsx --test src/**/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "classify": "tsx --env-file-if-exists=.env src/analyze/classify.ts",
+    "label": "tsx --env-file-if-exists=.env src/eval/label.ts",
+    "eval": "tsx --env-file-if-exists=.env src/eval/eval.ts",
+    "embed": "tsx --env-file-if-exists=.env src/analyze/embed.ts",
+    "cluster": "tsx --env-file-if-exists=.env src/analyze/cluster.ts",
+    "search": "tsx --env-file-if-exists=.env src/analyze/search.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.128.0",
+    "better-sqlite3": "^13.0.3",
+    "fast-xml-parser": "^5.11.1",
+    "html-to-text": "^10.0.1",
+    "sqlite-vec": "^0.1.9",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/html-to-text": "^9.0.4",
+    "@types/node": "^26.6.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

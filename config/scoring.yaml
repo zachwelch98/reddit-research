@@ -1,0 +1,16 @@
+# How clusters are ranked. Each component is normalized to 0–1 across the current clusters, then
+# combined with these weights into a 0–100 score. Weights are relative (they needn't sum to 1).
+weights:
+  frequency: 0.25        # log(number of posts in the cluster)
+  spread: 0.10           # number of distinct subreddits (cross-industry problems score higher)
+  engagement: 0.10       # log-scaled comment activity on member threads (RSS has no upvotes yet)
+  willingness_to_pay: 0.20
+  underserved: 0.15
+  ai_solvability: 0.20
+  emotional_intensity: 0.00   # tracked and shown, not ranked by default
+
+clustering:
+  target_cluster_size: 12     # k = pain points / this (full re-cluster). At 25, clusters split by persona, not problem.
+  min_similarity: 0.88        # to centroid; summaries share a template, so unrelated pairs already sit ~0.75. Recalibrate at full scale.
+  min_cluster_size: 3         # smaller clusters are dissolved
+  relabel_growth: 0.5         # relabel a cluster after incremental growth of 50%+

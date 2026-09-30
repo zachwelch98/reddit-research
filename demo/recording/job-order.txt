@@ -1,0 +1,16 @@
+Senior Data Engineer — Cobalt Pay (Series C payments platform)
+Location: Miami, FL — hybrid 2 days/week (strong remote-US candidates considered)
+Comp: $170–190k base + equity
+
+We're rebuilding our transaction data platform. You'll own batch and streaming pipelines that feed risk, finance and merchant reporting.
+
+Must have:
+- 6+ years in data engineering
+- Spark (or Flink) and Airflow in production
+- dbt and a cloud warehouse (Snowflake or BigQuery)
+- Kafka or another streaming system
+
+Nice to have:
+- Payments, card or ledger data
+- Data quality / observability tooling
+- Mentoring other engineers

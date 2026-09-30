@@ -1,0 +1,46 @@
+# Curated crawl sources. Seeded into the `sources` table by `npm run db:init`.
+# Sources added later through the CLI are stored in the DB. Re-seeding never removes or disables them.
+#
+# Ingestion (until official API access is approved):
+#   rss       – /r/{sub}/new/.rss pages (100 posts each) for post bodies + weekly deltas
+#   discovery – web search (You.com, or Brave) for "<phrase>" scoped to each subreddit finds pain-point threads,
+#               whose full post + top comments are then fetched via the thread RSS feed
+
+rss:
+  backfill_pages: 10       # ~1000 newest posts per subreddit on first run (Reddit caps listings there)
+
+discovery:
+  refresh_days: 14         # re-run a query at most this often; re-runs only search since the last run
+  pages_per_query: 1       # each page is one search query (You.com: 100 results, Brave: 20)
+  phrases:
+    - "is there a tool"
+    - "is there software"
+    - "how do you handle"
+    - "waste so much time"
+    - "so tedious"
+    - "I would pay for"
+    - "manual process"
+    - "any way to automate"
+
+subreddits:
+  smb-general: [smallbusiness, Entrepreneur, sweatystartup, EntrepreneurRideAlong, SaaS, startups, freelance, consulting, agency]
+  ecommerce: [ecommerce, shopify, AmazonSeller, Etsy]
+  accounting: [Accounting, Bookkeeping, taxpros]
+  legal: [LawFirm, paralegal]
+  real-estate: [RealEstate, realtors, PropertyManagement, Landlord]
+  insurance-finance: [InsuranceAgent, MortgageProfessionals]
+  trades: [HVAC, Plumbing, electricians, Construction, Contractor]
+  restaurants: [restaurantowners, KitchenConfidential]
+  healthcare: [dentistry, physicaltherapy, medicine, nursing, Veterinary]
+  people-ops: [recruiting, humanresources]
+  sales-marketing: [sales, marketing, PPC]
+  logistics: [logistics, Truckers]
+  it-services: [msp, sysadmin]
+  other: [nonprofit, Teachers]
+
+# Single threads worth including in full (full reddit.com/r/<sub>/comments/<id>/... URL).
+threads: []
+
+# Extra search queries scoped to a subreddit, beyond the standard phrases above.
+searches: []
+#  - { subreddit: Accounting, query: "month end close", vertical: accounting }
